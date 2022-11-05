@@ -13,7 +13,6 @@ class UserController extends Controller
             "email" => $request->email,
             "firebaseid" => $request->firebaseid
         ]);
-        dd($request);
 
         return response()->json(['message' => 'Successfully user create']);
     }
