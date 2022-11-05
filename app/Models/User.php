@@ -12,9 +12,7 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
-    protected $fillable = [
-        'name'
-    ];
+    protected $fillable = ['name', 'email' , 'firebaseid'];
     public function posts(){
     return $this->hasMany('App\Models\Post');
     }

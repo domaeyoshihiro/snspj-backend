@@ -10,4 +10,5 @@ use App\Http\Controllers\CommentController;
 Route::apiResource('/v1/user', UserController::class)->only(['store']);
 Route::apiResource('/v1/post', PostController::class)->only(['index', 'store', 'show', 'destroy']);
 Route::apiResource('/v1/like', LikeController::class)->only(['store', 'destroy']);
+Route::get('like/count', 'LikeController@count');
 Route::apiResource('/v1/comment', CommentController::class)->only(['store']);
