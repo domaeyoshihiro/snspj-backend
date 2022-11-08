@@ -27,7 +27,7 @@ class PostController extends Controller
     {
         $items = [
             'content' => $request->content,
-            'user_id' => User::id();
+            'user_id' => $request->uid,
         ];
         Post::create($items);
 
