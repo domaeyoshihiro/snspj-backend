@@ -25,10 +25,11 @@ class PostController extends Controller
 
     public function store(Request $request)
     {
-        $firebaseid = User::where("firebaseid", $request -> firebaseid)->get();
+        $firebaseid = User::where("firebaseid", $request -> firebaseid )->get();
+        $user_id = User::id();
         $items = [
             'content' => $request->content,
-            'user_id' => $firebaseid,
+            'user_id' => $user_id,
         ];
         Post::create($items);
 
