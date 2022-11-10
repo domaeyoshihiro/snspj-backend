@@ -25,7 +25,7 @@ class PostController extends Controller
 
     public function store(Request $request)
     {
-        $firebaseid = User::where("firebaseid", $request -> firebaseid )->get();
+        $firebaseid = User::where("firebaseid", $request -> firebaseid )->first();
         
         $items = [
             'content' => $request->content,
