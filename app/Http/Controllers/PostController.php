@@ -6,7 +6,7 @@ use App\Models\Post;
 use App\Models\User;
 use App\Models\Like;
 use App\Models\Comment;
-use Illuminate\Http\Request;
+
 
 class PostController extends Controller
 {
@@ -26,7 +26,7 @@ class PostController extends Controller
     public function store(Request $request)
     {
         $firebaseid = User::where("firebaseid", $request -> firebaseid )->first();
-        
+        dd($firebaseid);
         $items = [
             'content' => $request->content,
             'user_id' => $firebaseid->id,
