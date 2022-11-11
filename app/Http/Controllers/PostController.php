@@ -6,6 +6,7 @@ use App\Models\Post;
 use App\Models\User;
 use App\Models\Like;
 use App\Models\Comment;
+use Illuminate\Http\Request;
 
 
 class PostController extends Controller
