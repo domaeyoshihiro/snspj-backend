@@ -13,11 +13,10 @@ class PostController extends Controller
 {
     public function index()
     {
-        $posts = Post::all();
-        $user = User::all();
+        $posts = Post::with('user')->get();
         $likes = Like::all();
         $comments = Comment::all();
-        $items = ['posts' => $posts, 'user' => $user, 'likes' => $likes, 'comments' => $comments];
+        $items = ['posts' => $posts, 'likes' => $likes, 'comments' => $comments];
 
         return response()->json([
         'data' => $items
