@@ -13,7 +13,5 @@ Route::post('/post/destroy/{post}', [PostController::class, 'destroy']);
 
 
 
-Route::apiResource('/like', LikeController::class)->only(['store', 'destroy']);
-Route::post('/like/count', 'LikeController@count');
-Route::apiResource('/comment', CommentController::class)->only(['store']);
+
 
