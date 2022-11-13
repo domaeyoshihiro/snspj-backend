@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Comment;
 use Illuminate\Http\Request;
 
@@ -11,8 +12,8 @@ class CommentController extends Controller
     {
         $items = [
             'comment' => $request->comment,
-            'user_id' => User::id();
-            'post_id' => Post::id();
+            'user_id' => User::id(),
+            'post_id' => Post::id(),
         ];
         Post::create($items);
 
