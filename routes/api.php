@@ -9,7 +9,7 @@ use App\Http\Controllers\CommentController;
 
 Route::apiResource('/user', UserController::class)->only(['store']);
 Route::apiResource('/post', PostController::class)->only(['index', 'store', 'show']);
-Route::post('/post/destroy/{id}', [PostController::class, 'destroy']);
+Route::post('/post/destroy/{id}', 'PostController@destroy');
 
 
 Route::apiResource('/like', LikeController::class)->only(['store', 'destroy']);
