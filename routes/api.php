@@ -12,5 +12,4 @@ Route::apiResource('/post', PostController::class)->only(['index', 'store', 'sho
 Route::post('/post/destroy/{post}', [PostController::class, 'destroy']);
 Route::apiResource('/like', LikeController::class)->only(['store']);
 Route::post('/like/destroy/{like}', [LikeController::class, 'destroy']);
-Route::post('/like/count/', [LikeController::class, 'count']);
 Route::apiResource('/comment', CommentController::class)->only(['store']);
