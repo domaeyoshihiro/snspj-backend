@@ -14,9 +14,8 @@ class PostController extends Controller
     public function index()
     {
         $posts = Post::with('user')->get();
-        $likes = Like::all();
-        $comments = Comment::all();
-        $items = ['posts' => $posts, 'likes' => $likes, 'comments' => $comments];
+        $likes = Like::with('posts','user')->get();
+        $items = ['posts' => $posts, 'likes' => $likes];
 
         return response()->json([
         'data' => $items
