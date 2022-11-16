@@ -12,8 +12,8 @@ class LikeController extends Controller
     public function store(Request $request)
     {
         $post = Post::find($request->id);
-        $post->users()->attach($user->id);
-        $count = $post->users()->count();
+        $post->attach($post->user_id);
+        $count = $post->count();
         return response()->json([
             'count' => $count, 
         ]);
@@ -22,8 +22,8 @@ class LikeController extends Controller
     public function destroy(Like $like)
     {
         $post = Post::find($id);
-        $post->users()->detach($user->id);
-        $count = $post->users()->count();
+        $post->detach($post->user_id);
+        $count = $post->count();
         return response()->json([
             'count' => $count, 
         ]);
@@ -32,7 +32,7 @@ class LikeController extends Controller
     public function count ($id)
     {
         $post = Post::find($id);
-        $count = $post->users()->count();
+        $count = $post->count();
         return response()->json($count);
     }
 }
