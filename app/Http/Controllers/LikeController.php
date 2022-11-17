@@ -11,10 +11,9 @@ class LikeController extends Controller
 {
     public function store(Request $request)
     {
-        $post = Post::where("id", $request -> id )->first();
         $items = [
-            'post_id' => $post->id,
-            'user_id' => $post->user_id,
+            'post_id' => $request->post_id,
+            'user_id' => $request->user_id,
         ];
         Like::create($items);
         return response()->json([
