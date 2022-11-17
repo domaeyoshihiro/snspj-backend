@@ -12,8 +12,8 @@ class CommentController extends Controller
     {
         $items = [
             'comment' => $request->comment,
-            'user_id' => User::id(),
-            'post_id' => Post::id(),
+            'user_id' => $request->user_id,
+            'post_id' => $request->post_id,
         ];
         Post::create($items);
 
