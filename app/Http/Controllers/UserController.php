@@ -10,7 +10,7 @@ class UserController extends Controller
     public function index(Request $request)
     {
         $user = User::where("firebaseid", $request -> firebaseid )->first();
-        $items = ['users' => $users];
+        $items = ['user' => $user];
         return response()->json([
         'data' => $items
         ], 200);
