@@ -37,8 +37,8 @@ class LikeController extends Controller
 
     public function count(Request $request)
     {
-        $posts = Like::where("post_id", $request -> post_id )->get()->count();
-        $items = ['posts' => $posts];
+        $likes = Like::where("post_id", $request -> post_id )->get()->count();
+        $items = ['likes' => $likes];
         return response()->json([
         'data' => $items
         ], 200);
