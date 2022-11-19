@@ -19,4 +19,14 @@ class Post extends Model
     public function user(){
     return $this->belongsTo('App\Models\User');
     }
+
+    public static function boot()
+    {
+        parent::boot();
+
+        static::deleting(function ($post) {
+            $post->likes()->delete();
+        });
+    }
+
 }
