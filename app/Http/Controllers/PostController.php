@@ -38,8 +38,7 @@ class PostController extends Controller
 
     public function show(Post $post)
     {
-        $posts = Post::find($post);
-        $posts = Post::with('user', 'likes.user', 'comments.user')->get();
+        $posts = Post::with('user', 'likes.user', 'comments.user')->find($post);
 
         $items = [
             'posts' => $posts
