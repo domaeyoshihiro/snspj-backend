@@ -13,7 +13,7 @@ class PostController extends Controller
 {
     public function index()
     {
-        $posts = Post::with('user', 'likes.user')->get();
+        $posts = Post::with('user', 'likes.user', 'comments.user')->get();
         $items = ['posts' => $posts];
 
         return response()->json([
@@ -39,14 +39,14 @@ class PostController extends Controller
     public function show(Post $post)
     {
         $posts = Post::find($post);
+        $posts = Post::with('user', 'likes.user', 'comments.user')->get();
 
         $items = [
             'posts' => $posts
         ];
-
         if ($items) {
             return response()->json([
-                'data' => $item
+                'data' => $items
             ], 200);
         } else {
             return response()->json([
@@ -57,6 +57,7 @@ class PostController extends Controller
 
     public function destroy(Post $post)
     {
+        $item = Like::where("post_id", $post->id )->delete();
         $item = Post::where('id', $post->id)->delete();
         if ($item) {
             return response()->json([

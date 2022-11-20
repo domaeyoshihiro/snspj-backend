@@ -15,7 +15,7 @@ class CommentController extends Controller
             'user_id' => $request->user_id,
             'post_id' => $request->post_id,
         ];
-        Post::create($items);
+        Comment::create($items);
 
         return response()->json([
         'data' => $items
