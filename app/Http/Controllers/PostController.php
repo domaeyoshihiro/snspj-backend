@@ -56,6 +56,7 @@ class PostController extends Controller
 
     public function destroy(Post $post)
     {
+        $item = Comment::where("post_id", $post->id )->delete();
         $item = Like::where("post_id", $post->id )->delete();
         $item = Post::where('id', $post->id)->delete();
         if ($item) {
