@@ -10,7 +10,7 @@ Laravel・Nuxtの理解を深めるために作成
 
 ## 他のリポジトリ
 - フロントエンド
-- https://github.com/domaeyoshihiro/snspj.git
+https://github.com/domaeyoshihiro/snspj.git
 
 ## 機能一覧
 - 投稿追加
